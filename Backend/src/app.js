@@ -7,7 +7,8 @@ var bodyparser = require('body-parser');
 //Ejecutar express (http)
 var app = express();
 
-//cargar las rutas 
+//cargar fichero de  rutas 
+var articleroutes = require('../routes/article');
 
 //cargar middlewares
 app.use(bodyparser.urlencoded({extended:false}));
@@ -16,19 +17,10 @@ app.use(bodyparser.json());
 
 //cargarmos cors para permitir peticiones del front end
 
-//anadir prefijos a rutas
+//anadir prefijos a rutas y cargar las rutas
+app.use('/api',articleroutes);
 
 
-//Ruta  o metodo de prueba para el apirest
-app.post('/datos-curso',(req, res)=>{
-   var param = req.body.hola;
-
-    return res.status(200).send({
-        "Nombre":"edwin",
-        "Apellido": "Bucay",
-        "parametro": param
-    });
-});
 
 
 //exportar modulos 
