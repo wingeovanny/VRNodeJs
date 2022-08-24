@@ -20,8 +20,5 @@ app.use(bodyparser.json());
 //anadir prefijos a rutas y cargar las rutas
 app.use('/api',articleroutes);
 
-
-
-
 //exportar modulos 
 module.exports = app;
