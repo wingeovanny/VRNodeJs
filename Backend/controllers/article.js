@@ -74,7 +74,30 @@ var controller = {
         }
         
        
+    },
+
+    getArticles: (req, res) =>{
+
+        Article.find({}).exec((err, articles)=>{
+            if(err){
+                return res.status(500).send({
+                    status: 'error',
+                    message: 'error al devolver los articulos'
+                });
+            }
+
+            if(!articles){
+                return res.status(404).send({
+                    status: 'error',
+                    message: 'No hay articulos que mostrar'
+                });
+            }
+
+        });
+
     }
+
+
 
 };// end controller
 
